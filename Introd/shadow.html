@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shadow DOM Example</title>
+    <style>
+        /* Main document styles */
+        p {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <p>This is a paragraph in the main document.</p>
+
+    <div id="shadow-host"></div>
+
+    <script>
+        // Select the shadow host element
+        const shadowHost = document.getElementById('shadow-host');
+
+        // Attach a shadow root to the shadow host
+        const shadowRoot = shadowHost.attachShadow({ mode: 'open' });
+
+        // Add content to the shadow root
+        shadowRoot.innerHTML = `
+            <style>
+                /* Styles within the shadow DOM */
+                p {
+                    color: blue;
+                }
+            </style>
+            <p>This is a paragraph inside the shadow DOM.</p>
+        `;
+    </script>
+</body>
+</html>
